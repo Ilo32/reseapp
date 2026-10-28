@@ -38,7 +38,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <footer className="border-t border-slate-800 bg-slate-900">
           <p className="mx-auto max-w-6xl px-4 py-4 text-sm text-slate-400">
-            Data from countries.dev, Open-Meteo and Wikipedia.
+            {/* Had to add the bracket space parts to signal to react that there should be a space there. */}
+            Data from <a href="https://restcountries.com/">REST Countries</a>,{" "}
+            <a href="https://https://open-meteo.com/">Open-Mateo</a>,{" "}
+            <a href="https://www.wikipedia.org/">Wikipedia</a>
           </p>
         </footer>
       </body>
