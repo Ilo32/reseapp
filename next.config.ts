@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
   },
   cacheComponents: true,
   images: {
-    // Flags and Wikipedia pictures are loaded from these sites.
     remotePatterns: [
       { hostname: "flagcdn.com" },
       { hostname: "upload.wikimedia.org" },
@@ -15,6 +14,7 @@ const nextConfig: NextConfig = {
     ],
   },
   partialPrefetching: true,
+  output: "standalone",
   turbopack: {
     rules: {
       "*.css": {
