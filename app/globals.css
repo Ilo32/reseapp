@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :focus-visible {
+    outline: 3px solid var(--color-sky-400);
+    outline-offset: 2px;
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
