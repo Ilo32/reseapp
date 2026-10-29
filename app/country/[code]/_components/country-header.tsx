@@ -13,7 +13,7 @@ export default function CountryHeader({ country }: { country: Country }) {
       />
       <div>
         <h1 className="text-3xl font-bold">{country.name}</h1>
-        <p lang={country.languages?.[0]?.iso639_1} className="text-lg text-slate-400">
+        <p lang={country.languages?.[0]?.bcp47} className="text-lg text-slate-400">
           {country.nativeName}
         </p>
       </div>
