@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   images: {
     remotePatterns: [
-      { hostname: "flagcdn.com" },
+      { hostname: "flags.restcountries.com" },
       { hostname: "upload.wikimedia.org" },
       { hostname: "thumb.wikimedia.org" },
     ],
