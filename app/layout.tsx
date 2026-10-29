@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <header className="border-b border-slate-800 bg-slate-900">
           <div className="mx-auto max-w-6xl px-4 py-4">
             <Link href="/" className="text-xl font-bold">
-              <p>Travel Explorer</p>
+              Travel Explorer
             </Link>
           </div>
         </header>
@@ -40,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <p className="mx-auto max-w-6xl px-4 py-4 text-sm text-slate-400">
             {/* Had to add the bracket space parts to signal to react that there should be a space there. */}
             Data from <a href="https://restcountries.com/">REST Countries</a>,{" "}
-            <a href="https://https://open-meteo.com/">Open-Mateo</a>,{" "}
+            <a href="https://open-meteo.com/">Open-Meteo</a>,{" "}
             <a href="https://www.wikipedia.org/">Wikipedia</a>
           </p>
         </footer>
