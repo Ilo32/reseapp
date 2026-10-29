@@ -8,6 +8,7 @@ export function useListParams() {
   return {
     query: searchParams.get("query") ?? "",
     region: searchParams.get("region") ?? "",
+    sort: searchParams.get("sort") ?? "",
     page: Number(searchParams.get("page")) || 1,
     listParams: searchParams.toString(),
   };
