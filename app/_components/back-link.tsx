@@ -11,7 +11,7 @@ export default function BackLink() {
       href={listParams ? `/?${listParams}` : "/"}
       className="text-sky-400 underline"
     >
-      Return
+      Back to all countries
     </Link>
   );
 }

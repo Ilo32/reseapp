@@ -3,7 +3,7 @@
 import { use } from "react";
 import type { ListCountry } from "@/app/lib/types";
 import CountryCard from "./country-card";
-import Pagination from "./pagination";
+import Pagination, { ResultsId } from "./pagination";
 import { sortCountries } from "./sort";
 import { useListParams } from "./use-list-params";
 
@@ -36,9 +36,19 @@ export default function CountryResults({
         {matches.length === 0
           ? "No countries matching your search"
           : `${matches.length} ${matches.length === 1 ? "Country" : "Countries"}`}
+        {pageCount > 1 && (
+          <span className="sr-only">
+            , page {currentPage} of {pageCount}
+          </span>
+        )}
       </p>
 
-      <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <ul
+        id={ResultsId}
+        tabIndex={-1}
+        aria-label="Countries"
+        className="mt-4 grid gap-4 outline-none sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
         {visibleCountries.map((country) => (
           <li key={country.alpha3Code}>
             <CountryCard country={country} listParams={listParams} />

@@ -28,14 +28,14 @@ export default function CountryCard({
           className="h-32 w-full bg-slate-800 object-contain p-4"
         />
       ) : (
-        <div className="flex h-32 w-full items-center justify-center bg-slate-800 text-sm text-slate-500">
+        <div className="flex h-32 w-full items-center justify-center bg-slate-800 text-sm text-slate-400">
           No flag available
         </div>
       )}
       <div className="p-4">
         <h2 className="text-lg font-semibold">{country.name}</h2>
         <p className="text-sm text-slate-400">
-          Capital: {country.capital || "not found"}
+          Capital: {country.capital || "Unknown"}
         </p>
         <p className="text-sm text-slate-400">Region: {country.region}</p>
       </div>

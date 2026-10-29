@@ -20,7 +20,7 @@ export default function CountryPage({ params }: PageProps<"/country/[code]">) {
       <Suspense
         fallback={
           <Link href="/" className="text-sky-400 underline">
-            Return
+            Back to all countries
           </Link>
         }
       >

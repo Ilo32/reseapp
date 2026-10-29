@@ -33,17 +33,20 @@ export default function SearchFilters() {
   return (
     <div className="mt-6 space-y-4 rounded-lg bg-slate-900 p-4 shadow-sm ring-1 ring-slate-800">
       <form role="search" onSubmit={(event) => event.preventDefault()}>
+        <label htmlFor="query" className="text-sm text-slate-400">
+          Search for a country
+        </label>
         <input
           id="query"
           type="search"
           value={searchText}
           onChange={(event) => search(event.target.value)}
-          placeholder="t.ex. Finland"
-          className="mt-1 w-full rounded-md border border-slate-600 bg-slate-950 px-3 py-2"
+          placeholder="e.g. Finland"
+          className="mt-1 w-full rounded-md border border-slate-500 bg-slate-950 px-3 py-2"
         />
       </form>
 
-      <div role="group" aria-label="Filtrera på region" className="flex flex-wrap gap-2">
+      <div role="group" aria-label="Filter by region" className="flex flex-wrap gap-2">
         {RegionOptions.map((option) => {
           const selected = region === option.value;
           return (
@@ -69,7 +72,7 @@ export default function SearchFilters() {
         <select
           value={sort}
           onChange={(event) => updateListUrl({ sort: event.target.value, page: "" })}
-          className="rounded-md border border-slate-600 bg-slate-950 px-3 py-2 text-slate-100"
+          className="rounded-md border border-slate-500 bg-slate-950 px-3 py-2 text-slate-100"
         >
           {SortOptions.map((option) => (
             <option key={option.value} value={option.value}>

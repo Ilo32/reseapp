@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     template: "%s - Travel Explorer",
   },
   description:
-    "facts, weather and inspiration for your next travel destination",
+    "Facts, weather and inspiration for your next travel destination",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="sv" className={`${geistSans.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-slate-950 font-sans text-slate-100">
         <header className="border-b border-slate-800 bg-slate-900">
           <div className="mx-auto max-w-6xl px-4 py-4">
@@ -39,9 +39,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <footer className="border-t border-slate-800 bg-slate-900">
           <p className="mx-auto max-w-6xl px-4 py-4 text-sm text-slate-400">
             {/* Had to add the bracket space parts to signal to react that there should be a space there. */}
-            Data from <a href="https://restcountries.com/">REST Countries</a>,{" "}
-            <a href="https://open-meteo.com/">Open-Meteo</a>,{" "}
-            <a href="https://www.wikipedia.org/">Wikipedia</a>
+            Data from <a href="https://restcountries.com/" className="underline hover:text-slate-200">REST Countries</a>,{" "}
+            <a href="https://open-meteo.com/" className="underline hover:text-slate-200">Open-Meteo</a>,{" "}
+            <a href="https://www.wikipedia.org/" className="underline hover:text-slate-200">Wikipedia</a>
           </p>
         </footer>
       </body>

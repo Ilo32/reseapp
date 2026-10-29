@@ -5,7 +5,7 @@ export default function Error({ retry }: { retry: () => void }) {
     <div role="alert" className="py-16 text-center">
       <h1 className="text-3xl font-bold">Something went wrong</h1>
       <p className="mt-2 text-slate-400">
-        We couldnt fetch the data right now. Please try again in a little while.
+        We couldn't fetch the data right now. Please try again in a little while.
       </p>
       <button
         type="button"

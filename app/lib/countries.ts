@@ -7,7 +7,7 @@ const ListFields =
 function fetchApi(path: string) {
   return fetch(`https://api.restcountries.com/countries/v5${path}`, {
     headers: { Authorization: `Bearer ${process.env.RESTCOUNTRIES_API_KEY}` },
-  })
+  });
 }
 
 function toListCountry(country: ApiCountry): ListCountry {
@@ -19,11 +19,11 @@ function toListCountry(country: ApiCountry): ListCountry {
     flags: { svg: country.flag.url_svg },
     population: country.population,
     area: country.area?.kilometers,
-  }
+  };
 }
 
 function toCountry(country: ApiCountry): Country {
-  const nativeNames = Object.values(country.names.native ?? {})
+  const nativeNames = Object.values(country.names.native ?? {});
 
   return {
     ...toListCountry(country),
@@ -35,44 +35,44 @@ function toCountry(country: ApiCountry): Country {
     latlng: country.coordinates
       ? [country.coordinates.lat, country.coordinates.lng]
       : undefined,
-  }
+  };
 }
 
 /* Basically a loop to get all the countries and cache it. */
 export async function getCountryList(): Promise<ListCountry[]> {
-  "use cache"
-  cacheLife("days")
+  "use cache";
+  cacheLife("days");
 
-  const countries: ApiCountry[] = []
-  let more = true
+  const countries: ApiCountry[] = [];
+  let more = true;
 
   while (more) {
     const params = new URLSearchParams({
       response_fields: ListFields,
       limit: "100",
       offset: String(countries.length),
-    })
+    });
 
-    const response = await fetchApi(`?${params}`)
-    if (!response.ok) throw new Error("Couldn't fetch countries")
+    const response = await fetchApi(`?${params}`);
+    if (!response.ok) throw new Error("Couldn't fetch countries");
 
-    const { data }: ApiResponse = await response.json()
-    countries.push(...data.objects)
-    more = Boolean(data.meta?.more) && data.objects.length > 0
+    const { data }: ApiResponse = await response.json();
+    countries.push(...data.objects);
+    more = Boolean(data.meta?.more) && data.objects.length > 0;
   }
 
-  return countries.map(toListCountry)
+  return countries.map(toListCountry);
 }
 
 export async function getCountry(code: string): Promise<Country | null> {
-  "use cache"
-  cacheLife("days")
+  "use cache";
+  cacheLife("days");
 
-  const response = await fetchApi(`/codes.alpha_3/${encodeURIComponent(code)}`)
+  const response = await fetchApi(`/codes.alpha_3/${encodeURIComponent(code)}`);
 
-  if (response.status === 404) return null
-  if (!response.ok) throw new Error("Couldn't fetch country")
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error("Couldn't fetch country");
 
-  const { data }: ApiResponse = await response.json()
-  return data.objects[0] ? toCountry(data.objects[0]) : null
+  const { data }: ApiResponse = await response.json();
+  return data.objects[0] ? toCountry(data.objects[0]) : null;
 }
