@@ -14,10 +14,11 @@ export default function Facts({ country }: { country: Country }) {
       <FactList
         facts={[
           ["Region", country.subregion ? `${country.region}, ${country.subregion}` : country.region],
-          ["Capital", country.capital || "saknas"],
+          ["Capital", country.capital || "missing"],
           ["Population", country.population.toLocaleString("sv-SE")],
-          ["Language", languages.join(", ") || "saknas"],
-          ["Currency", currencies.join(", ") || "saknas"],
+          ["Area", country.area ? `${country.area.toLocaleString("sv-SE")} km²` : "missing"],
+          ["Language", languages.join(", ") || "missing"],
+          ["Currency", currencies.join(", ") || "missing"],
         ]}
       />
     </Section>
