@@ -8,15 +8,15 @@ export default async function CurrentWeather({
 }: {
   country: Country;
 }) {
-  const capital = country.capital
+  const capitalCoordinates = country.capital
     ? await findCity(country.capital, country.alpha2Code)
     : null;
-  const middle = country.latlng
+  const countryCenter = country.latlng
     ? { latitude: country.latlng[0], longitude: country.latlng[1] }
     : null;
 
-  const place = capital ? country.capital : country.name;
-  const coordinates = capital ?? middle;
+  const place = capitalCoordinates ? country.capital : country.name;
+  const coordinates = capitalCoordinates ?? countryCenter;
   const weather = coordinates ? await getWeather(coordinates) : null;
 
   if (!weather) {
