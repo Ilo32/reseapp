@@ -29,7 +29,7 @@ export async function findCity(name: string, countryCode: string): Promise<Coord
   return city ? { latitude: city.latitude, longitude: city.longitude } : null;
 }
 
-export async function getWeather({latitude, longitude}: Coordinates): Promise<Weather | null> {
+export async function getWeather({ latitude, longitude }: Coordinates): Promise<Weather | null> {
   "use cache";
   cacheLife("minutes");
 
@@ -43,7 +43,6 @@ export async function getWeather({latitude, longitude}: Coordinates): Promise<We
   const response = await fetch(
     `https://api.open-meteo.com/v1/forecast?${params}`,
   );
-  
   if (!response.ok) return null;
 
   const { current } = await response.json();

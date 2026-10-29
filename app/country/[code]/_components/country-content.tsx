@@ -1,8 +1,7 @@
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { SectionFallback } from "@/app/_components/ui/section";
 import { getCountry } from "@/app/lib/countries";
-import { notFound } from "next/navigation";
-
 import CountryHeader from "./country-header";
 import CurrentWeather from "./current-weather";
 import Facts from "./facts";

@@ -8,7 +8,7 @@ export default function NotFound() {
         The country or page you are looking for does not exist.
       </p>
       <Link href="/" className="mt-6 inline-block text-sky-400 underline">
-        Return
+        Back to all countries
       </Link>
     </div>
   );

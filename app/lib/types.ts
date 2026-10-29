@@ -32,7 +32,6 @@ export type ApiResponse = {
   data: { objects: ApiCountry[]; meta?: { more?: boolean } };
 };
 
-
 export type Coordinates = {
   latitude: number;
   longitude: number;

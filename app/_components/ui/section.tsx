@@ -1,8 +1,9 @@
+import type { ReactNode } from "react";
 import Spinner from "./spinner";
 
-export default function Section({title, children}: {title: string; children: React.ReactNode}) {
+export default function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="rounded-lg bg-slate-900 p-6 shadow-sm ring-1 ring-slate-800">
+    <section className="rounded-lg bg-slate-900 p-4 shadow-sm sm:p-6 ring-1 ring-slate-800">
       <h2 className="mb-4 text-xl font-semibold">{title}</h2>
       {children}
     </section>

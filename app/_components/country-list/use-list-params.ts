@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 
 export function useListParams() {
   const searchParams = useSearchParams();
-  
+
   return {
     query: searchParams.get("query") ?? "",
     region: searchParams.get("region") ?? "",
