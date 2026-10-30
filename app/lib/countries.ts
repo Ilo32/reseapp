@@ -4,10 +4,21 @@ import type { Country, ListCountry, ApiCountry, ApiResponse } from "./types";
 const ListFields =
   "names.common,codes.alpha_3,region,capitals,flag.url_svg,population,area.kilometers";
 
-function fetchApi(path: string) {
-  return fetch(`https://api.restcountries.com/countries/v5${path}`, {
-    headers: { Authorization: `Bearer ${process.env.RESTCOUNTRIES_API_KEY}` },
-  });
+const RequestTimeout = 3000;
+const MaxAttempts = 3;
+
+async function fetchApi(path: string): Promise<Response> {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const response = await fetch(`https://api.restcountries.com/countries/v5${path}`, {
+        headers: { Authorization: `Bearer ${process.env.RESTCOUNTRIES_API_KEY}` },
+        signal: AbortSignal.timeout(RequestTimeout),
+      });
+      if (response.status < 500 || attempt === MaxAttempts) return response;
+    } catch (error) {
+      if (attempt === MaxAttempts) throw error;
+    }
+  }
 }
 
 function toListCountry(country: ApiCountry): ListCountry {
